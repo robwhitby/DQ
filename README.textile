@@ -30,5 +30,5 @@ DQ is a web based XQuery editor for MarkLogic XML Server, based on CQ. DQ aims t
 * Copy into sub-folder of existing CQ installation
 * Browse to: http://SERVER:CQPORT/DQ
 
-!http://github.com/robwhitby/DQ/raw/master/screenshot.jpg!
+!http://github.com/robwhitby/DQ/blob/master/screenshot.jpg!
 
