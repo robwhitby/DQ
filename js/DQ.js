@@ -70,6 +70,9 @@ DQ.process = function(format, saveFile) {
 	document.forms.form1.query.value = (sel.length > 1)? sel : q;
 	document.forms.form1['mime-type'].value = format;
 	document.forms.form1['save-file'].value = (arguments.length === 2)? saveFile : false;
+	
+	//thanks to http://github.com/malteseduck 
+	document.forms.form1.action = (format === 'explore')? '../explore.xqy' : '../eval.xqy';
 	document.forms.form1.submit();
 	return false;
 }

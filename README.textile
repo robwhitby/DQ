@@ -10,13 +10,14 @@ DQ is a web based XQuery editor for MarkLogic XML Server, based on CQ. DQ aims t
 * Save queries and results to file system
 * Highlighting a section of code and executing will run just the selected code
 * Get query results as XML, Text, HTML, saved to file or profile information
-* Even supports the tab key!
+* Supports tab key and block indent/unindent
+* Browse/Explore database files (ctrl-shift-e)
 
 
 *Planned Future Features*
 * Integration of XQuery API reference
 * Function auto-complete
-* Browse/Explore database files
+* Browse/Explore database files (DONE)
 * Rename tabs
 * More suggestions welcome!
 
@@ -24,11 +25,11 @@ DQ is a web based XQuery editor for MarkLogic XML Server, based on CQ. DQ aims t
 *Requirements*
 * CQ (tested with 4.1.2)
 * Firefox 3.5, IE8 or Opera 10.5
+  (Chrome not recommended as it doesn't format raw XML output)
 
 
 *Installation*
 * Copy into sub-folder of existing CQ installation
 * Browse to: http://SERVER:CQPORT/DQ
 
-!http://github.com/robwhitby/DQ/blob/master/screenshot.jpg!
-
+!http://github.com/robwhitby/DQ/blob/master/screenshot.jpg?raw=true!
