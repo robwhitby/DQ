@@ -892,7 +892,12 @@
 				var elem= document.createElement('li');
 				elem.id= this.files[id]['html_id'];
 				var close= "<img src=\""+ parent.editAreaLoader.baseURL +"images/close.gif\" title=\""+ this.get_translation('close_tab', 'word') +"\" onclick=\"editArea.execCommand('close_file', editArea.filesIdAssoc['"+ html_id +"']);return false;\" class=\"hidden\" onmouseover=\"this.className=''\" onmouseout=\"this.className='hidden'\" />";
-				elem.innerHTML= "<a onclick=\"javascript:editArea.execCommand('switch_to_file', editArea.filesIdAssoc['"+ html_id +"']);\" selec=\"none\"><b><span><strong class=\"edited\">*</strong>"+ this.files[id]['title'] + close +"</span></b></a>";
+				
+				//*** modified by Rob Whitby - fire rename_tab event on double click
+				var dblClick = "<a onclick=\"editArea.execCommand('rename_tab', editArea.filesIdAssoc['"+ html_id + "']);\"";
+				elem.innerHTML= "<a " + dblClick + " onclick=\"javascript:editArea.execCommand('switch_to_file', editArea.filesIdAssoc['"+ html_id +"']);\" selec=\"none\"><b><span><strong class=\"edited\">*</strong><em id=\"" + elem.id  + "_title\">"+ this.files[id]['title'] +  "</em>" + close +"</span></b></a>";
+				//*** end change
+				
 				_$('tab_browsing_list').appendChild(elem);
 				var elem= document.createElement('text');
 				this.update_size();

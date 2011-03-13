@@ -63,7 +63,8 @@ DQ.resizeEditor = function(w, h) {
 DQ.appServerChange = function() {
 	editAreaLoader.getCurrentFile(DQ.editorId).appServer = DQ.selectApp.value;
 };
-	
+
+
 DQ.process = function(format, saveFile) {
 	var sel = editAreaLoader.getSelectedText(DQ.editorId);
 	var q = editAreaLoader.getValue(DQ.editorId);
@@ -74,6 +75,7 @@ DQ.process = function(format, saveFile) {
 	//thanks to http://github.com/malteseduck 
 	document.forms.form1.action = (format === 'explore')? '../explore.xqy' : '../eval.xqy';
 	document.forms.form1.submit();
+	DQ.save();
 	return false;
 }
 

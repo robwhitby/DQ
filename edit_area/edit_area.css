@@ -464,6 +464,7 @@ table.statusbar{
 	color: #FFF;
 }
 
+#tab_browsing_list em { font-style:normal; }
 
 #no_file_selected{
 	height: 100%;

@@ -33,6 +33,23 @@ var EditArea_DQ = {
 			return true;
 		}
 	}
+	
+	,execCommand: function(cmd, param) {
+		
+		switch(cmd) {
+			case 'rename_tab':
+				var file = editArea.get_file(param);
+				var newTitle = prompt('Rename tab', file.title);
+				if (newTitle != null) {
+					file.title = newTitle;
+					document.getElementById('tab_file_' + param + '_title').innerHTML = newTitle;
+				}
+				break;
+			default:
+				break;
+		}
+		return true;
+	}
 };
 
 editArea.add_plugin("DQ", EditArea_DQ);
