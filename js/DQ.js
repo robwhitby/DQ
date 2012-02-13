@@ -98,7 +98,8 @@ DQ.load = function() {
 		EA_load_callback: 'DQ.eaLoadCb',
 		save_callback: 'DQ.download',
 		EA_file_switch_on_callback: 'DQ.eaFileSwitchCb',
-		plugins: 'DQ'
+		plugins: 'DQ',
+		replace_tab_by_spaces: 2
 	});
 };	
 
