@@ -4,7 +4,8 @@ var DQ = {
 	data: null,
 	selectApp: null,
 	editorFrame: null,
-	isIE: /msie/.test(navigator.userAgent.toLowerCase())
+	isIE: /msie/.test(navigator.userAgent.toLowerCase()),
+	newTemplate: 'xquery version "1.0-ml";\n\n'
 };
 
 DQ.log = function(){} 
@@ -44,7 +45,7 @@ DQ.openFile = function(data) {
 	var fileId = 'tab' + ++DQ.tabCounter;
 	editAreaLoader.openFile(DQ.editorId, {
 			id: fileId, 
-			text: (data)? data.text : "xquery version '1.0-ml';\n\n", 
+			text: (data)? data.text : DQ.newTemplate, 
 			title: (data)? data.title : 'New ' + DQ.tabCounter
 		}
 	);
@@ -79,11 +80,11 @@ DQ.process = function(format, saveFile) {
 	return false;
 }
 
-DQ.load = function() {
-	
+DQ.load = function() {	
 	if (window.localStorage) {
 		DQ.data = JSON.parse(localStorage.DQ? localStorage.DQ : '[]');
 		DQ.log('load data', DQ.data);
+		DQ.newTemplate = localStorage.DQ_template? localStorage.DQ_template : DQ.newTemplate;
 	}
 	DQ.selectApp = document.getElementById('eval');
 	
@@ -116,6 +117,16 @@ DQ.save = function() {
 		}
 		localStorage.DQ = JSON.stringify(data);
 	}
+};
+
+DQ.saveTemplate = function() {
+	if (window.localStorage && window.confirm("Replace new tab template with current text?")) {
+		var q = editAreaLoader.getValue(DQ.editorId);
+		DQ.newTemplate = q;
+		localStorage.DQ_template = q;
+		DQ.log('saveTemplate', q);
+	}
+	return false;
 };
 
 DQ.download = function(id, text) {

@@ -29,6 +29,7 @@ xdmp:set-response-content-type('text/html; charset=utf-8'),
 					<button onclick="return DQ.process('text/plain', true);" title="Shortcut: ctrl-alt-enter">FILE</button>
 					<button onclick="return DQ.process('application/x-com.marklogic.developer.cq.profiling');" title="Shortcut: ctrl-alt-shift-enter">PROFILE</button>
 					<button onclick="return DQ.process('explore');" title="Shortcut: ctrl-shift-e">EXPLORE</button>
+					<button onclick="return DQ.saveTemplate();" title="Save query as default template">Update Template</button>
 				</div>
 			</form>
 		</div>
